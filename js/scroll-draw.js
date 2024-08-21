@@ -1,13 +1,8 @@
-const svg = document.querySelector("svg.svg");
-const path = svg.querySelector("path");
-const scroll = () =>
-    {
-        const distance = window.scrollY;
-        const totalDistance = svg.clientHeight - window.innerHeight;
-        const percent = distance / totalDistance;
-        const pathLength = path.getTotalLength();
-        path.style.strokeDasharray = `${pathLength}`;
-        path.style.strokeDashoffset = `${pathLength * (1 - percent)}`;
-    }
-    scroll();
-    window.addEventListener('scroll', scroll);
+window.addEventListener('scroll', function() {
+  const mainImageContainer = document.getElementById('home');
+  const scrollPosition = window.scrollY;
+  const image = mainImageContainer.querySelector('#home img');
+
+  // Update image position based on scroll position
+  image.style.transform = `translateY(${scrollPosition}px)`;
+});
